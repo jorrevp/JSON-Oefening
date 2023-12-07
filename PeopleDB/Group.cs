@@ -14,5 +14,13 @@ namespace PeopleDB
         public List<Person> People { get; set; } = new List<Person>();
 
         // TODO: voeg serialize en deserialize functies toe
+        public string Serialize()
+        {
+            return JsonConvert.SerializeObject(People, Formatting.Indented);
+        }
+        public static Group? Deserialize(string json)
+        {
+            return JsonConvert.DeserializeObject<Group>(json);
+        }
     }
 }
